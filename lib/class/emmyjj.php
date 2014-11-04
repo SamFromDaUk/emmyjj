@@ -48,7 +48,7 @@ class EmmyJJ {
     {
         $params = array();
         $response = array(
-            'status' => 200,
+            'status' => '200 OK',
             'message' => 'Contact request submitted successfully.'
         );
 
@@ -60,7 +60,7 @@ class EmmyJJ {
          * Timeout a contact request if the form is more than FORM_FRESHNESS old.
          */
         if (!isset($_POST['request-id']) || !self::validateRequestToken($_POST['request-id'])) {
-            $response['status'] = 400;
+            $response['status'] = '400 Bad Request';
             $response['message'] = 'Your contact request has timed out. Please reload the page and try again.';
             return $response;
         }
@@ -69,7 +69,7 @@ class EmmyJJ {
          * Catch any bot with a honeypot attempting to spam the form
          */
         if (isset($_POST['honey']) && !empty($_POST['honey'])) {
-            $response['status'] = 400;
+            $response['status'] = '400 Bad Request';
             $response['message'] = 'There was a problem submitting your form.';
             return $response;
         }
@@ -78,7 +78,7 @@ class EmmyJJ {
          * Validate the email so the CONTACT_EMAIL can respond
          */
         if (!isset($params['email']) && empty($params['email']) || !filter_var($params['email'], FILTER_VALIDATE_EMAIL)) {
-            $response['status'] = 400;
+            $response['status'] = '400 Bad Request';
             $response['message'] = 'Please enter a valid email to allow me to reply.';
         }
 
@@ -86,7 +86,7 @@ class EmmyJJ {
             self::sendMail($params);
             return $response;
         } catch(\Exception $e) {
-            $response['status'] = 500;
+            $response['status'] = '500 Internal Server Error';
             $response['message'] = $e->getMessage();
         }
 
@@ -106,16 +106,20 @@ class EmmyJJ {
 
     public static function sendMail($params)
     {
-        $template = ''
-            . 'Name: %name%\r\n'
-            . 'Message: \r\n'
-            . '%message%\r\n'
-            . 'Delivered by website mail service. Speak to ' . WEB_ADMIN_CONTACT . ' if you have any queries' ;
+        $template = ""
+            . "Name: {{name}}\r\n"
+            . "Message: \r\n"
+            . "{{message}}\r\n\r\n\r\n"
+            . "Delivered by website mail service.\r\nSpeak to " . WEB_ADMIN_CONTACT . " if you have any queries" ;
 
-        $template = preg_replace('%name%', $params['name'], $template);
-        $template = preg_replace('%message%', $params['message'], $template);
+        $template = str_replace('{{name}}', $params['name'], $template);
+        $template = str_replace('{{message}}', $params['message'], $template);
 
-        if (mail(CONTACT_EMAIL, $params['subject'], $template)) {
+        $headers = "From: " . WEB_ADMIN_CONTACT;
+        $headers .= "\r\nReply-To: " . $params['email'];
+        $headers .= "\r\nX-Mailer: PHP/".phpversion();
+
+        if (mail(CONTACT_EMAIL, $params['subject'], $template, $headers, '-f ' . $params['email'])) {
             return true;
         } else {
             throw new \Exception('A technical error occurred. Unable to send mail.');

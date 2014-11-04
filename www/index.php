@@ -4,7 +4,7 @@
     if (isset($_POST['request-id'])) {
         $response = \EmmyJJ::handleContactRequest();
 
-        http_response_code($response['status']);
+        header("HTTP/1.1 " . $response['status']);
         echo json_encode($response);
         die;
     }
