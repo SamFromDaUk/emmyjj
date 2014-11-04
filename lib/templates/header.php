@@ -1,3 +1,7 @@
+<?php
+    $tree = \EmmyJJ::getTree();
+?>
+
 <!doctype html>
     <head>
         <title>Emmy JJ</title>
@@ -8,7 +12,7 @@
         <script src="public/lib/jssor-slider/js/jssor.js" ></script>
         <script src="public/lib/jssor-slider/js/jssor.slider.js" ></script>
     </head>
-    <body class="<?php echo \EmmyJJ::getTree()[0] ?>">
+    <body class="<?php echo $tree[0] ?>">
         <div class="container">
             <div class="row header">
                 <div class="col-sm-10 col-sm-offset-2">
