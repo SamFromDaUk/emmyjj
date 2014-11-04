@@ -108,11 +108,13 @@ class EmmyJJ {
     {
         $template = ""
             . "Name: {{name}}\r\n"
+            . "Email {{email}}\r\n"
             . "Message: \r\n"
             . "{{message}}\r\n\r\n\r\n"
             . "Delivered by website mail service.\r\nSpeak to " . WEB_ADMIN_CONTACT . " if you have any queries" ;
 
         $template = str_replace('{{name}}', $params['name'], $template);
+        $template = str_replace('{{email}}', $params['email'], $template);
         $template = str_replace('{{message}}', $params['message'], $template);
 
         $headers = "From: " . WEB_ADMIN_CONTACT;
