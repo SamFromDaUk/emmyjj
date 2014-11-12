@@ -29,7 +29,7 @@ class EmmyJJ {
         if (file_exists($file)) {
             require $file;
         } else {
-            http_response_code(404);
+            header("HTTP/1.0 404 Not Found");
             require ROOT . '/lib/templates/404.php';
         }
     }
