@@ -35,5 +35,26 @@
         <div class="col-md-4">
             <img src="public/image/contact.jpg" />
         </div>
+        <div class="col-md-offset-2 col-md-10 social">
+            <a target="_blank" href="https://www.facebook.com/emmyjjmusic/timeline">
+                <img src="public/image/social/facebook.png" />
+            </a>
+            <a target="_blank" href="http://uk.linkedin.com/pub/emmy-jj/92/74b/533">
+                <img src="public/image/social/linkedin.png" />
+            </a>
+            <a target="_blank" href="https://www.youtube.com/channel/UC4ol2znK_3b_SQ5BZEq7P2A">
+                <img src="public/image/social/youtube.png" />
+            </a>
+            <a target="_blank" href="https://myspace.com/emmyjjmusic">
+                <img src="public/image/social/myspace.png" />
+            </a>
+            <a target="_blank" href="https://soundcloud.com/emmyjjmusic">
+                <img src="public/image/social/soundcloud.png" />
+            </a>
+            <a target="_blank" href="http://vimeo.com/user32427455">
+                <img src="public/image/social/vimeo.png" />
+            </a>
+            <a class="social-text-link" target="_blank" href="https://www.facebook.com/katiemariephotographyuk/info">Katie Marie Photography</a>
+        </div>
     </div>
 </div>
