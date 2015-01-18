@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div id="jssor-slider" style="position: relative; top: 0px; left: 0px; width: 800px;
-            height: 456px; background: #191919; overflow: hidden;">
+            height: 456px; background: transparent; overflow: hidden;">
 
             <!-- Loading Screen -->
             <div u="loading" style="position: absolute; top: 0px; left: 0px;">
