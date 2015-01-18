@@ -17,7 +17,7 @@
             </p>
             <p class="text-justify">
                 Currently residing in her hometown Birmingham, Emma is fully mobile throughout the UK and worldwide, armed
-                with the latest RCA PA system, giving your event that professional touch.
+                with the latest RCF PA system, giving your event that professional touch.
             </p>
         </div>
         <div class="col-md-6">
