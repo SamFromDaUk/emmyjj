@@ -32,7 +32,7 @@
                 <div class="alert alert-info hide"></div>
             </form>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 hidden-xs hidden-sm">
             <img src="public/image/contact.jpg" />
         </div>
         <div class="col-md-offset-2 col-md-10 social">
