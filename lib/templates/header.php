@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="public/css/core.css" />
         <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 
-        <script src="https://code.jquery.com/jquery-1.11.1.min.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
         <script src="public/script/init.js" ></script>
         <script src="public/lib/jssor-slider/js/jssor.js" ></script>
         <script src="public/lib/jssor-slider/js/jssor.slider.js" ></script>
